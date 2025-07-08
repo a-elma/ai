@@ -1,0 +1,49 @@
+Чат с AI
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Botpress Chat</title>
+  <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
+  <style>
+    #webchat .bpWebchat {
+      position: unset;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
+      max-width: 100%;
+    }
+    #webchat .bpFab {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="webchat" style="width: 500px; height: 500px;"></div>
+
+  <script>
+    window.botpress.on("webchat:ready", () => {
+      window.botpress.open();
+    });
+
+    window.botpress.init({
+      botId: "3431c295-1101-4fd7-8748-e757e213165a",
+      clientId: "d17b6c24-e5a2-495d-a347-7f14b9069282",
+      selector: "#webchat",
+      configuration: {
+        version: "v1",
+        color: "#3276EA",
+        variant: "solid",
+        themeMode: "light",
+        fontFamily: "inter",
+        radius: 4,
+        feedbackEnabled: true,
+        footer: "[⚡ by Botpress](https://botpress.com/?from=webchat)"
+      }
+    });
+  </script>
+
+</body>
+</html>

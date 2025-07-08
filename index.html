@@ -1,50 +1,67 @@
-test
+test1
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Тест Botpress Chat</title>
+  <title>Встроенный чат Botpress</title>
   <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
   <style>
-    #webchat .bpWebchat {
-      position: unset;
-      width: 500px;
-      height: 500px;
-      max-height: 100%;
-      max-width: 100%;
+    /* Стили контейнера для чата */
+    #chat-container {
+      width: 600px;   /* ширина по желанию */
+      height: 700px;  /* высота по желанию */
+      margin: 40px auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      overflow: hidden;
     }
 
-    #webchat .bpFab {
-      display: none;
+    /* Убираем кнопку пузырь */
+    #chat-container .bpFab {
+      display: none !important;
+    }
+
+    /* Чат занимает 100% контейнера */
+    #chat-container .bpWebchat {
+      width: 100% !important;
+      height: 100% !important;
+      position: unset !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
     }
   </style>
 </head>
 <body>
-  <h1>Чат с AI</h1>
 
-  <div id="webchat"></div>
+<h1>Чат с AI</h1>
 
-  <script>
-    window.botpress.init({
-      botId: "3431c295-1101-4fd7-8748-e757e213165a",
-      clientId: "d17b6c24-e5a2-495d-a347-7f14b9069282",
-      selector: "#webchat",
-      configuration: {
-        version: "v1",
-        color: "#3276EA",
-        variant: "solid",
-        headerVariant: "glass",
-        themeMode: "light",
-        fontFamily: "inter",
-        radius: 4,
-        feedbackEnabled: true,
-        footer: "[⚡ by Botpress](https://botpress.com/?from=webchat)"
-      }
-    });
+<!-- Контейнер, куда вставляем чат -->
+<div id="chat-container"></div>
 
-    window.botpress.on("webchat:ready", () => {
-      window.botpress.open();
-    });
-  </script>
+<script>
+  window.botpress.init({
+    botId: "3431c295-1101-4fd7-8748-e757e213165a",
+    clientId: "d17b6c24-e5a2-495d-a347-7f14b9069282",
+    selector: "#chat-container",
+    configuration: {
+      version: "v1",
+      botName: "AI Assistant",
+      botDescription: "Ваш AI-ассистент",
+      color: "#3276EA",
+      variant: "solid",
+      headerVariant: "glass",
+      themeMode: "light",
+      fontFamily: "inter",
+      radius: 6,
+      feedbackEnabled: true,
+      footer: "[⚡ powered by Botpress](https://botpress.com/?from=webchat)"
+    }
+  });
+
+  window.botpress.on("webchat:ready", () => {
+    window.botpress.open();
+  });
+</script>
+
 </body>
 </html>

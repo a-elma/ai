@@ -1,5 +1,3 @@
-Чат с AI3
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -37,21 +35,30 @@
   <div id="webchat"></div>
 
   <script>
-    window.botpress?.init({
-      botId: "3431c295-1101-4fd7-8748-e757e213165a",
-      clientId: "d17b6c24-e5a2-495d-a347-7f14b9069282",
-      selector: "#webchat",
-      configuration: {
-        version: "v1",
-        color: "#3276EA",
-        variant: "solid",
-        themeMode: "light",
-        fontFamily: "inter",
-        radius: 4,
-        feedbackEnabled: true,
-        footer: "[⚡ by Botpress](https://botpress.com/?from=webchat)"
+    function initBotpress() {
+      if (!window.botpress) {
+        setTimeout(initBotpress, 100);
+        return;
       }
-    });
+
+      window.botpress.init({
+        botId: "3431c295-1101-4fd7-8748-e757e213165a",
+        clientId: "d17b6c24-e5a2-495d-a347-7f14b9069282",
+        selector: "#webchat",
+        configuration: {
+          version: "v1",
+          color: "#3276EA",
+          variant: "solid",
+          themeMode: "light",
+          fontFamily: "inter",
+          radius: 4,
+          feedbackEnabled: true,
+          footer: "[⚡ by Botpress](https://botpress.com/?from=webchat)"
+        }
+      });
+    }
+
+    initBotpress();
   </script>
 </body>
 </html>

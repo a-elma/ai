@@ -1,42 +1,9 @@
 test2
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <title>Botpress Embedded Chat</title>
-  <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
-  <style>
-    #chat-container {
-      width: 400px;
-      height: 600px;
-      margin: 20px auto;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-  </style>
-</head>
-<body>
-
-<h2>Чат с AI</h2>
-<div id="chat-container"></div>
-
-<script>
-  window.botpress.init({
-    botId: "3431c295-1101-4fd7-8748-e757e213165a",
-    clientId: "d17b6c24-e5a2-495d-a347-7f14b9069282",
-    selector: "#chat-container",
-    configuration: {
-      version: 1,        // число, а не строка
-      color: "#3276EA",
-      themeMode: "light"
-    }
-  });
-
-  window.botpress.on("webchat:ready", () => {
-    window.botpress.open();
-  });
-</script>
-
-</body>
-</html>
+window.botpress.init({
+  botId: "3431c295-1101-4fd7-8748-e757e213165a",
+  clientId: "d17b6c24-e5a2-495d-a347-7f14b9069282",
+  selector: "#chat-container",
+});
+window.botpress.on("webchat:ready", () => {
+  window.botpress.open();
+});

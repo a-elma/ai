@@ -1,14 +1,15 @@
+test
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Чат с ИИ</title>
+  <title>Тест Botpress Chat</title>
   <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
   <style>
     #webchat .bpWebchat {
       position: unset;
-      width: 100%;
-      height: 100%;
+      width: 500px;
+      height: 500px;
       max-height: 100%;
       max-width: 100%;
     }
@@ -16,49 +17,34 @@
     #webchat .bpFab {
       display: none;
     }
-    #webchat {
-      width: 500px;
-      height: 500px;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background: white;
-      z-index: 9999;
-    }
   </style>
 </head>
 <body>
-  <h1>Чат с ИИ2</h1>
+  <h1>Чат с AI</h1>
 
   <div id="webchat"></div>
 
   <script>
-    function initBotpress() {
-      if (!window.botpress) {
-        setTimeout(initBotpress, 100);
-        return;
+    window.botpress.init({
+      botId: "3431c295-1101-4fd7-8748-e757e213165a",
+      clientId: "d17b6c24-e5a2-495d-a347-7f14b9069282",
+      selector: "#webchat",
+      configuration: {
+        version: "v1",
+        color: "#3276EA",
+        variant: "solid",
+        headerVariant: "glass",
+        themeMode: "light",
+        fontFamily: "inter",
+        radius: 4,
+        feedbackEnabled: true,
+        footer: "[⚡ by Botpress](https://botpress.com/?from=webchat)"
       }
+    });
 
-      window.botpress.init({
-        botId: "3431c295-1101-4fd7-8748-e757e213165a",
-        clientId: "d17b6c24-e5a2-495d-a347-7f14b9069282",
-        selector: "#webchat",
-        configuration: {
-          version: "v1",
-          color: "#3276EA",
-          variant: "solid",
-          themeMode: "light",
-          fontFamily: "inter",
-          radius: 4,
-          feedbackEnabled: true,
-          footer: "[⚡ by Botpress](https://botpress.com/?from=webchat)"
-        }
-      });
-    }
-
-    initBotpress();
+    window.botpress.on("webchat:ready", () => {
+      window.botpress.open();
+    });
   </script>
 </body>
 </html>
